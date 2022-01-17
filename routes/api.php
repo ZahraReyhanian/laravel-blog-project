@@ -21,9 +21,19 @@ Route::prefix('v1')->namespace('App\Http\Controllers\api\v1')->group(function ()
         Route::post('register', 'RegisterController@register');
     });
 
-    Route::middleware('auth:sanctum')->group(function (){
+    Route::prefix('post')->namespace('post')->group(function (){
+        Route::get('/', 'PostController@index');
+        Route::get('/{post}', 'PostController@show');
 
+        Route::middleware('auth:sanctum')->group(function (){
+            //store, edit, update, delete, like, comment
+            Route::post('/', 'PostController@store');
+            Route::put('/{post}', 'PostController@update');
+            Route::delete('/{post}', 'PostController@destroy');
+        });
     });
+
+
 
 });
 
