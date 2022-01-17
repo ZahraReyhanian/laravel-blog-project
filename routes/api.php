@@ -35,7 +35,8 @@ Route::prefix('v1')->namespace('App\Http\Controllers\api\v1')->group(function ()
             Route::post('/{post}/unlike', 'LikeController@unFavoritePost');
 
 
-            Route::post('/comment', 'CommentController@index');
+            Route::get('/comment', 'CommentController@index');
+            Route::post('/comment', 'CommentController@comment');
 
             Route::put('/comment/{comment}', 'CommentController@confirm');
             Route::put('/comment/{comment}/unconfirm', 'CommentController@unconfirm');

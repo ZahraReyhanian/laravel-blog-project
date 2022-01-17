@@ -34,9 +34,9 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
         $post = Post::create([
-           'title' => $request->title,
-           'image' => $request->image,
-           'description' => $request->description,
+            'title' => $request->title,
+            'image' => $request->image,
+            'description' => $request->description,
         ]);
 
         if ($request->has('categories'))
@@ -57,8 +57,15 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        $comments = $post->comments()->where('parent_id', 0)->where('approved', 1)->get();
+        $categories = $post->categories()->get();
+
         return response()->json([
-            'data' => $post,
+            'data' => [
+                "post" => $post,
+                "comments" => $comments,
+                "categories" => $categories
+            ],
             'status' => 'success'
         ], 200);
     }

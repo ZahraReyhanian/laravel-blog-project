@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\api\v1\category;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -28,14 +27,14 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param CategoryRequest $request
+     * @param Request $request
      * @return void
      */
-    public function store(CategoryRequest $request)
+    public function store(Request $request)
     {
-        $category = Category::create([
-            'name' => $request->name
-        ]);
+        $data = $this->validateData($request);
+
+        $category = Category::create($data);
 
         return response()->json([
             'data' => $category,
@@ -66,9 +65,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $category->update([
-            'name' => $request->name
-        ]);
+        $data = $this->validateData($request);
+        $category->update($data);
 
         return response()->json([
             'data' => $category,
@@ -90,5 +88,24 @@ class CategoryController extends Controller
             'data' => [],
             'status' => 'success'
         ], 200);
+    }
+
+    /**
+     * @param Request $request
+     * @return array
+     */
+    protected function validateData(Request $request)
+    {
+        if ($request->parent) {
+            $data = $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'parent' => 'exists:categories,id',
+            ]);
+        } else {
+            $data = $request->validate([
+                'name' => ['required', 'string', 'max:255']
+            ]);
+        }
+        return $data;
     }
 }

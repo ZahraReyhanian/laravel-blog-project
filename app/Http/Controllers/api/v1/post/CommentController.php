@@ -9,11 +9,21 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+    public function index()
+    {
+        $comments = Comment::query()->latest()->paginate(20);
+
+        return response()->json([
+            'data' => $comments,
+            'status' => 'success'
+        ], 200);
+    }
+
     /**
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index(Request $request)
+    public function comment(Request $request)
     {
         $data = $request->validate([
             'commentable_type' => 'required',
