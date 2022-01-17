@@ -30,6 +30,28 @@ Route::prefix('v1')->namespace('App\Http\Controllers\api\v1')->group(function ()
             Route::post('/', 'PostController@store');
             Route::put('/{post}', 'PostController@update');
             Route::delete('/{post}', 'PostController@destroy');
+
+            Route::post('/{post}/like', 'LikeController@favoritePost');
+            Route::post('/{post}/unlike', 'LikeController@unFavoritePost');
+
+
+            Route::post('/comment', 'CommentController@index');
+
+            Route::put('/comment/{comment}', 'CommentController@confirm');
+            Route::put('/comment/{comment}/unconfirm', 'CommentController@unconfirm');
+            Route::delete('/comment/{comment}', 'CommentController@delete');
+        });
+    });
+
+    Route::prefix('category')->namespace('category')->group(function (){
+        Route::get('/', 'CategoryController@index');
+        Route::get('/{category}', 'CategoryController@show');
+
+        Route::middleware('auth:sanctum')->group(function (){
+            //store, edit, update, delete, like, comment
+            Route::post('/', 'CategoryController@store');
+            Route::put('/{category}', 'CategoryController@update');
+            Route::delete('/{category}', 'CategoryController@destroy');
         });
     });
 
