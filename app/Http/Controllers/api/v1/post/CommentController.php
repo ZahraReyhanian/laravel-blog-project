@@ -23,6 +23,18 @@ class CommentController extends Controller
     }
 
     /**
+     * @param Comment $comment
+     * @return JsonResponse
+     */
+    public function show(Comment $comment)
+    {
+        return response()->json([
+            'data' => $comment,
+            'status' => 'success'
+        ], 200);
+    }
+
+    /**
      * @param Request $request
      * @return JsonResponse
      */
@@ -53,6 +65,8 @@ class CommentController extends Controller
         $comment->update([
             'approved' => 1
         ]);
+        $comment->commentable->increment('commentCount');
+
         return response()->json([
             'data' => $comment,
             'status' => 'success'
@@ -68,6 +82,8 @@ class CommentController extends Controller
         $comment->update([
             'approved' => 0
         ]);
+        $comment->commentable->decrement('commentCount');
+
         return response()->json([
             'data' => $comment,
             'status' => 'success'
@@ -80,6 +96,9 @@ class CommentController extends Controller
      */
     public function delete(Comment $comment)
     {
+        if ($comment->approved == 1){
+            $comment->commentable->decrement('commentCount');
+        }
         $comment->delete();
         return response()->json([
             'data' => [],

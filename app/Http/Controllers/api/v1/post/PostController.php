@@ -9,10 +9,20 @@ use Illuminate\Http\JsonResponse;
 
 class PostController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum')->except(['index','show']);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return JsonResponse
+     */
+    /**
+     * @OA\Get(
+     *     path="/post",
+     *     @OA\Response(response="200", description="Display a listing of posts.")
+     * )
      */
     public function index()
     {

@@ -45,7 +45,10 @@ class RoleController extends Controller
         $role->permissions()->sync($data['permissions']);
 
         return response()->json([
-            'data' => $role,
+            'data' => [
+                'role' => $role,
+                'permissions' => $role->permissions
+            ],
             'status' => 'success'
         ], 200);
     }
@@ -59,7 +62,10 @@ class RoleController extends Controller
     public function show(Role $role)
     {
         return response()->json([
-            'data' => $role,
+            'data' => [
+                'role' => $role,
+                'permissions' => $role->permissions
+            ],
             'status' => 'success'
         ], 200);
     }
@@ -82,7 +88,10 @@ class RoleController extends Controller
         $role->permissions()->sync($data['permissions']);
 
         return response()->json([
-            'data' => $role,
+            'data' => [
+                'role' => $role,
+                'permissions' => $role->permissions
+            ],
             'status' => 'success'
         ], 200);
     }

@@ -32,30 +32,25 @@ Route::prefix('v1')->namespace('App\Http\Controllers\api\v1')->group(function ()
         Route::apiResource('roles', 'RoleController');
 
         //user permission
-        Route::post('permissions/user', 'UserPermissionController@store');
+        Route::post('permissions/{user}', 'UserPermissionController@store');
+        Route::get('permissions/{user}', 'UserPermissionController@index');
 
     });
 
-    Route::prefix('post')->namespace('post')->group(function (){
-        Route::get('/', 'PostController@index');
-        Route::get('/{post}', 'PostController@show');
+    Route::namespace('post')->group(function (){
+        Route::apiResource('posts', 'PostController');
 
         Route::middleware('auth:sanctum')->group(function (){
-            //store, edit, update, delete, like, comment
-            Route::post('/', 'PostController@store');
-            Route::put('/{post}', 'PostController@update');
-            Route::delete('/{post}', 'PostController@destroy');
-
+            //like, comment
             Route::post('/{post}/like', 'LikeController@favoritePost');
             Route::post('/{post}/unlike', 'LikeController@unFavoritePost');
 
 
             Route::prefix('comment')->group(function (){
-                Route::get('/', 'CommentController@index');
                 Route::post('/', 'CommentController@comment');
 
+                Route::get('/', 'CommentController@index');
                 Route::get('/{comment}', 'CommentController@show');
-
                 Route::put('/{comment}', 'CommentController@confirm');
                 Route::put('/{comment}/unconfirm', 'CommentController@unconfirm');
                 Route::delete('/{comment}', 'CommentController@delete');
@@ -64,24 +59,10 @@ Route::prefix('v1')->namespace('App\Http\Controllers\api\v1')->group(function ()
         });
     });
 
-    Route::prefix('category')->namespace('category')->group(function (){
-        Route::get('/', 'CategoryController@index');
-        Route::get('/{category}', 'CategoryController@show');
-
-        Route::middleware('auth:sanctum')->group(function (){
-            //store, edit, update, delete, like, comment
-            Route::post('/', 'CategoryController@store');
-            Route::put('/{category}', 'CategoryController@update');
-            Route::delete('/{category}', 'CategoryController@destroy');
-        });
+    Route::namespace('category')->group(function (){
+        Route::apiResource('categories', 'CategoryController');
     });
 
 
 
-});
-
-
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
 });

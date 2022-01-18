@@ -1,0 +1,2027 @@
+{
+	"info": {
+		"_postman_id": "e89f0a63-4acf-4bcd-bc43-6fb9ad4e6cbc",
+		"name": "BlogLaravelProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "reyhanyanz@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12341234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "reyhanyanz@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12341234",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 19:40:27 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 19:40:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"message\": \"User successfully registered\",\n        \"user\": {\n            \"id\": 2,\n            \"name\": \"zahra\",\n            \"email\": \"reyhanyanz@gmail.com\",\n            \"is_superuser\": 0,\n            \"is_staff\": 0,\n            \"email_verified_at\": null,\n            \"created_at\": \"2022-01-17T04:51:53.000000Z\",\n            \"updated_at\": \"2022-01-17T04:51:53.000000Z\"\n        },\n        \"token\": \"5|aonNRBQXSB1bribcHb4RoxSRY44JMjFNNkXmYl00\"\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "sara",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "s_sara@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "sara",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "s_sara@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "12345678",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 19:43:15 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 19:43:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"message\": \"User successfully registered\",\n        \"user\": {\n            \"name\": \"sara\",\n            \"email\": \"s_sara@gmail.com\",\n            \"updated_at\": \"2022-01-18T19:43:15.000000Z\",\n            \"created_at\": \"2022-01-18T19:43:15.000000Z\",\n            \"id\": 3\n        },\n        \"token\": \"6|qe3C27UGJceJKwBclxvaDkBfJ0r2JTHhJhHvnduT\"\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "getEmailForResetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "reyhanyanz@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/password/email",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"password",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ResetPassword",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "reyhanyanz@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "12345678",
+									"type": "text"
+								},
+								{
+									"key": "token",
+									"value": "7a246c3fdd83f204af6f80544bfeebc614aed8cfaf81e31221c33775ce05c26f",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/password/reset",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"password",
+								"reset"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ResetPassword",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "email",
+											"value": "reyhanyanz@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "token",
+											"value": "7a246c3fdd83f204af6f80544bfeebc614aed8cfaf81e31221c33775ce05c26f",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/password/reset",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"password",
+										"reset"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 20:15:29 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 20:15:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Your password has been reset!\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "Permission",
+					"item": [
+						{
+							"name": "getPermissions",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/permissions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"permissions"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "getPermissions",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8000/api/v1/auth/permissions",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"permissions"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 18 Jan 2022 20:20:10 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 18 Jan 2022 20:20:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.4.5"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 4,\n                \"name\": \"create-post\",\n                \"label\": \"ایجاد پست\",\n                \"created_at\": \"2022-01-18T20:19:49.000000Z\",\n                \"updated_at\": \"2022-01-18T20:19:49.000000Z\"\n            },\n            {\n                \"id\": 3,\n                \"name\": \"delete-user\",\n                \"label\": \"حذف کاربر\",\n                \"created_at\": \"2022-01-18T15:58:00.000000Z\",\n                \"updated_at\": \"2022-01-18T15:58:00.000000Z\"\n            },\n            {\n                \"id\": 1,\n                \"name\": \"edit-user\",\n                \"label\": \"ویرایش کاربر\",\n                \"created_at\": null,\n                \"updated_at\": null\n            }\n        ],\n        \"first_page_url\": \"http://localhost:8000/api/v1/auth/permissions?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://localhost:8000/api/v1/auth/permissions?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/v1/auth/permissions?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://localhost:8000/api/v1/auth/permissions\",\n        \"per_page\": 20,\n        \"prev_page_url\": null,\n        \"to\": 3,\n        \"total\": 3\n    },\n    \"status\": \"success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "CreatePermission",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "edit-role",
+											"type": "text"
+										},
+										{
+											"key": "label",
+											"value": "ویرایش مقام",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/permissions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"permissions"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "CreatePermission",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "name",
+													"value": "create-post",
+													"type": "text"
+												},
+												{
+													"key": "label",
+													"value": "ایجاد پست",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/v1/auth/permissions",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"permissions"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 18 Jan 2022 20:19:50 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 18 Jan 2022 20:19:50 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.4.5"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"name\": \"create-post\",\n        \"label\": \"ایجاد پست\",\n        \"updated_at\": \"2022-01-18T20:19:49.000000Z\",\n        \"created_at\": \"2022-01-18T20:19:49.000000Z\",\n        \"id\": 4\n    },\n    \"status\": \"success\"\n}"
+								},
+								{
+									"name": "CreatePermission",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "name",
+													"value": "delete-post",
+													"type": "text"
+												},
+												{
+													"key": "label",
+													"value": "حذف پست",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/v1/auth/permissions",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"permissions"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 18 Jan 2022 20:37:55 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 18 Jan 2022 20:37:55 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.4.5"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"name\": \"delete-post\",\n        \"label\": \"حذف پست\",\n        \"updated_at\": \"2022-01-18T20:37:54.000000Z\",\n        \"created_at\": \"2022-01-18T20:37:54.000000Z\",\n        \"id\": 6\n    },\n    \"status\": \"success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "DeletePermission",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/permissions/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"permissions",
+										"3"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ShowPermission",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/permissions/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"permissions",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdatePermission",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "delete-user",
+											"type": "text"
+										},
+										{
+											"key": "label",
+											"value": "حذف کاربران",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/permissions/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"permissions",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "SetUserPermissionsAndRoles",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "permissions[0]",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/permissions/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"permissions",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetUserPermissionsAndRoles",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/permissions/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"permissions",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Role",
+					"item": [
+						{
+							"name": "getRoles",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/roles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CreateRole",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "manage-users",
+											"type": "text"
+										},
+										{
+											"key": "label",
+											"value": "مدیریت کاربران",
+											"type": "text"
+										},
+										{
+											"key": "permissions[0]",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/roles",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"roles"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "ShowRole",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/roles/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"roles",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UpdateRole",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "name",
+											"value": "manage-post",
+											"type": "text"
+										},
+										{
+											"key": "label",
+											"value": "مدیریت پست ها",
+											"type": "text"
+										},
+										{
+											"key": "permissions[0]",
+											"value": "4",
+											"type": "text"
+										},
+										{
+											"key": "permissions[1]",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "permissions[2]",
+											"value": "6",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/roles/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"roles",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "urlencoded",
+											"urlencoded": [
+												{
+													"key": "name",
+													"value": "manage-post",
+													"type": "text"
+												},
+												{
+													"key": "label",
+													"value": "مدیریت پست ها",
+													"type": "text"
+												},
+												{
+													"key": "permissions[0]",
+													"value": "4",
+													"type": "text"
+												},
+												{
+													"key": "permissions[1]",
+													"value": "5",
+													"type": "text"
+												},
+												{
+													"key": "permissions[2]",
+													"value": "6",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8000/api/v1/auth/roles/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8000",
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"roles",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Host",
+											"value": "localhost:8000"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 18 Jan 2022 20:43:04 GMT"
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 18 Jan 2022 20:43:04 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.4.5"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"role\": {\n            \"id\": 1,\n            \"name\": \"manage-post\",\n            \"label\": \"مدیریت پست ها\",\n            \"created_at\": \"2022-01-18T20:33:22.000000Z\",\n            \"updated_at\": \"2022-01-18T20:39:42.000000Z\",\n            \"permissions\": [\n                {\n                    \"id\": 4,\n                    \"name\": \"create-post\",\n                    \"label\": \"ایجاد پست\",\n                    \"created_at\": \"2022-01-18T20:19:49.000000Z\",\n                    \"updated_at\": \"2022-01-18T20:19:49.000000Z\",\n                    \"pivot\": {\n                        \"role_id\": 1,\n                        \"permission_id\": 4\n                    }\n                },\n                {\n                    \"id\": 5,\n                    \"name\": \"edit-post\",\n                    \"label\": \"ویرایش پست\",\n                    \"created_at\": \"2022-01-18T20:37:31.000000Z\",\n                    \"updated_at\": \"2022-01-18T20:37:31.000000Z\",\n                    \"pivot\": {\n                        \"role_id\": 1,\n                        \"permission_id\": 5\n                    }\n                },\n                {\n                    \"id\": 6,\n                    \"name\": \"delete-post\",\n                    \"label\": \"حذف پست\",\n                    \"created_at\": \"2022-01-18T20:37:54.000000Z\",\n                    \"updated_at\": \"2022-01-18T20:37:54.000000Z\",\n                    \"pivot\": {\n                        \"role_id\": 1,\n                        \"permission_id\": 6\n                    }\n                }\n            ]\n        },\n        \"permissions\": [\n            {\n                \"id\": 4,\n                \"name\": \"create-post\",\n                \"label\": \"ایجاد پست\",\n                \"created_at\": \"2022-01-18T20:19:49.000000Z\",\n                \"updated_at\": \"2022-01-18T20:19:49.000000Z\",\n                \"pivot\": {\n                    \"role_id\": 1,\n                    \"permission_id\": 4\n                }\n            },\n            {\n                \"id\": 5,\n                \"name\": \"edit-post\",\n                \"label\": \"ویرایش پست\",\n                \"created_at\": \"2022-01-18T20:37:31.000000Z\",\n                \"updated_at\": \"2022-01-18T20:37:31.000000Z\",\n                \"pivot\": {\n                    \"role_id\": 1,\n                    \"permission_id\": 5\n                }\n            },\n            {\n                \"id\": 6,\n                \"name\": \"delete-post\",\n                \"label\": \"حذف پست\",\n                \"created_at\": \"2022-01-18T20:37:54.000000Z\",\n                \"updated_at\": \"2022-01-18T20:37:54.000000Z\",\n                \"pivot\": {\n                    \"role_id\": 1,\n                    \"permission_id\": 6\n                }\n            }\n        ]\n    },\n    \"status\": \"success\"\n}"
+								}
+							]
+						},
+						{
+							"name": "DeleteRequest",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/auth/roles/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"roles",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "4|bKdbsmDSfRnIg7z7deGVhJ3SY0HHtcGJDXPQe5aZ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "getCategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getCategories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 20:48:11 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 20:48:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 3,\n                \"name\": \"laravel\",\n                \"parent\": 0,\n                \"created_at\": \"2022-01-17T20:38:01.000000Z\",\n                \"updated_at\": \"2022-01-17T20:38:01.000000Z\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"computers\",\n                \"parent\": 0,\n                \"created_at\": \"2022-01-17T20:37:54.000000Z\",\n                \"updated_at\": \"2022-01-17T20:37:54.000000Z\"\n            },\n            {\n                \"id\": 1,\n                \"name\": \"books\",\n                \"parent\": 0,\n                \"created_at\": \"2022-01-17T20:37:43.000000Z\",\n                \"updated_at\": \"2022-01-17T20:37:43.000000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://localhost:8000/api/v1/categories?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://localhost:8000/api/v1/categories?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/v1/categories?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://localhost:8000/api/v1/categories\",\n        \"per_page\": 20,\n        \"prev_page_url\": null,\n        \"to\": 3,\n        \"total\": 3\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CreateCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|bKdbsmDSfRnIg7z7deGVhJ3SY0HHtcGJDXPQe5aZ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Cat",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/categories",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|bKdbsmDSfRnIg7z7deGVhJ3SY0HHtcGJDXPQe5aZ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Books",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/categories/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCategory",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|bKdbsmDSfRnIg7z7deGVhJ3SY0HHtcGJDXPQe5aZ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/categories/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ShowCategory",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/categories/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"categories",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ShowCategory",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/categories/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"categories",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 20:54:08 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 20:54:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 3,\n        \"name\": \"laravel\",\n        \"parent\": 0,\n        \"created_at\": \"2022-01-17T20:38:01.000000Z\",\n        \"updated_at\": \"2022-01-17T20:38:01.000000Z\"\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "getPosts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"posts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getPosts",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8000/api/v1/posts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"v1",
+										"posts"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 19:38:25 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Jan 2022 19:38:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.4.5"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"id\": 7,\n                \"title\": \"Post 1\",\n                \"image\": \"C:\\\\xampp\\\\tmp\\\\php923F.tmp\",\n                \"description\": \"description of post 1\",\n                \"likeCount\": 0,\n                \"commentCount\": 0,\n                \"created_at\": \"2022-01-18T19:07:36.000000Z\",\n                \"updated_at\": \"2022-01-18T19:07:36.000000Z\"\n            },\n            {\n                \"id\": 6,\n                \"title\": \"Post 1\",\n                \"image\": \"C:\\\\xampp\\\\tmp\\\\phpF8A3.tmp\",\n                \"description\": \"description of post 1\",\n                \"likeCount\": 0,\n                \"commentCount\": 0,\n                \"created_at\": \"2022-01-18T18:54:56.000000Z\",\n                \"updated_at\": \"2022-01-18T18:54:56.000000Z\"\n            },\n            {\n                \"id\": 5,\n                \"title\": \"post 3\",\n                \"image\": \"C:\\\\xampp\\\\tmp\\\\php5E6D.tmp\",\n                \"description\": \"tozihate post 3\",\n                \"likeCount\": 1,\n                \"commentCount\": 0,\n                \"created_at\": \"2022-01-17T20:54:08.000000Z\",\n                \"updated_at\": \"2022-01-18T19:30:43.000000Z\"\n            },\n            {\n                \"id\": 4,\n                \"title\": \"post 3\",\n                \"image\": \"C:\\\\xampp\\\\tmp\\\\php14F4.tmp\",\n                \"description\": \"tozihate post 3\",\n                \"likeCount\": 1,\n                \"commentCount\": 0,\n                \"created_at\": \"2022-01-17T20:39:12.000000Z\",\n                \"updated_at\": \"2022-01-18T19:30:22.000000Z\"\n            },\n            {\n                \"id\": 3,\n                \"title\": \"Post 3\",\n                \"image\": \"C:\\\\xampp\\\\tmp\\\\php4337.tmp\",\n                \"description\": \"Post 3 description\",\n                \"likeCount\": 0,\n                \"commentCount\": 0,\n                \"created_at\": \"2022-01-17T20:38:15.000000Z\",\n                \"updated_at\": \"2022-01-18T19:31:06.000000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://localhost:8000/api/v1/posts?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://localhost:8000/api/v1/posts?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8000/api/v1/posts?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://localhost:8000/api/v1/posts\",\n        \"per_page\": 20,\n        \"prev_page_url\": null,\n        \"to\": 5,\n        \"total\": 5\n    },\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "CreatePost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|bKdbsmDSfRnIg7z7deGVhJ3SY0HHtcGJDXPQe5aZ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Post 1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/E:/pictures/4_5967319942066866159.jpg"
+								},
+								{
+									"key": "description",
+									"value": "description of post 1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletePost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|bKdbsmDSfRnIg7z7deGVhJ3SY0HHtcGJDXPQe5aZ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/posts/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UpdatePost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|bKdbsmDSfRnIg7z7deGVhJ3SY0HHtcGJDXPQe5aZ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Post 3",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/E:/pictures/4_5967340149887993545.jpg"
+								},
+								{
+									"key": "description",
+									"value": "Post 3 description",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/posts/3?_method=PUT",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"3"
+							],
+							"query": [
+								{
+									"key": "_method",
+									"value": "PUT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ShowPost",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/posts/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"posts",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LikePost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|bKdbsmDSfRnIg7z7deGVhJ3SY0HHtcGJDXPQe5aZ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/3/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"3",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UnlikePost",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "4|bKdbsmDSfRnIg7z7deGVhJ3SY0HHtcGJDXPQe5aZ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/3/unlike",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"3",
+								"unlike"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "CreateComment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "commentable_type",
+									"value": "App\\Models\\Post",
+									"type": "text"
+								},
+								{
+									"key": "commentable_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "parent_id",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "salam",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/comment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getComments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/comment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteComment",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/comment/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"comment",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ConfirmComment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/comment/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"comment",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UnconfirmComment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/comment/3/unconfirm",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"comment",
+								"3",
+								"unconfirm"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ShowComment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/comment/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"comment",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "4|bKdbsmDSfRnIg7z7deGVhJ3SY0HHtcGJDXPQe5aZ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.request.headers.add({\"key\":\"Accept\",\"value\":\"application/json\",\"description\":\"\",\"type\":\"text\",\"enabled\":true});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

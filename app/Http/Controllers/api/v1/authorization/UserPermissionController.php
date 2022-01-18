@@ -9,6 +9,20 @@ use Illuminate\Http\Request;
 
 class UserPermissionController extends Controller
 {
+    /**
+     * @param User $user
+     * @return JsonResponse
+     */
+    public function index(User $user)
+    {
+        return response()->json([
+            'data' => [
+                'permissions' => $user->permissions,
+                'roles' => $user->roles,
+            ],
+            'status' => 'success'
+        ], 200);
+    }
 
     /**
      * @param Request $request

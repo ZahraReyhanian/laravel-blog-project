@@ -1,0 +1,22 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "My First API",
+        "version": "0.1"
+    },
+    "paths": {
+        "/post": {
+            "get": {
+                "operationId": "2a944e3afe4b2d4c305467c1d54009ff",
+                "responses": {
+                    "200": {
+                        "description": "Display a listing of posts."
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
