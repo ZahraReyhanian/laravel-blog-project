@@ -5,14 +5,14 @@ namespace App\Http\Controllers\api\v1\post;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
 use App\Models\Post;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return JsonResponse
      */
     public function index()
     {
@@ -29,7 +29,7 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      *
      * @param PostRequest $request
-     * @return void
+     * @return JsonResponse
      */
     public function store(PostRequest $request)
     {
@@ -53,11 +53,13 @@ class PostController extends Controller
      * Display the specified resource.
      *
      * @param Post $post
-     * @return void
+     * @return JsonResponse
      */
     public function show(Post $post)
     {
-        $comments = $post->comments()->where('parent_id', 0)->where('approved', 1)->get();
+        $comments = $this->getAllComments($post->comments()->where('parent_id', 0)->where('approved', 1)->get());
+
+
         $categories = $post->categories()->get();
 
         return response()->json([
@@ -75,7 +77,7 @@ class PostController extends Controller
      *
      * @param PostRequest $request
      * @param Post $post
-     * @return void
+     * @return JsonResponse
      */
     public function update(PostRequest $request, Post $post)
     {
@@ -92,7 +94,7 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Post $post
-     * @return void
+     * @return JsonResponse
      */
     public function destroy(Post $post)
     {
@@ -102,5 +104,13 @@ class PostController extends Controller
             'data' => [],
             'status' => 'success'
         ], 200);
+    }
+
+    private function getAllComments(\Illuminate\Database\Eloquent\Collection $comments)
+    {
+        if (!!$comments)
+            foreach ($comments as $comment)
+                $comment->child = $this->getAllComments($comment->child()->where('approved', 1)->get());
+        return $comments;
     }
 }

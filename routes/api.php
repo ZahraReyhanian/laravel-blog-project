@@ -19,6 +19,21 @@ Route::prefix('v1')->namespace('App\Http\Controllers\api\v1')->group(function ()
     Route::prefix('auth')->namespace('auth')->group(function (){
         Route::post('login', 'LoginController@login');
         Route::post('register', 'RegisterController@register');
+
+        Route::post('/password/email', 'ResetController@sendPasswordResetLinkEmail')->middleware('throttle:5,1')->name('password.email');
+        Route::post('/password/reset', 'ResetController@resetPassword')->name('password.reset');
+    });
+
+    Route::prefix('auth')->namespace('authorization')->middleware('auth:sanctum')->group(function (){
+        //permissions
+        Route::apiResource('permissions', 'PermissionController');
+
+        //role
+        Route::apiResource('roles', 'RoleController');
+
+        //user permission
+        Route::post('permissions/user', 'UserPermissionController@store');
+
     });
 
     Route::prefix('post')->namespace('post')->group(function (){
@@ -35,12 +50,17 @@ Route::prefix('v1')->namespace('App\Http\Controllers\api\v1')->group(function ()
             Route::post('/{post}/unlike', 'LikeController@unFavoritePost');
 
 
-            Route::get('/comment', 'CommentController@index');
-            Route::post('/comment', 'CommentController@comment');
+            Route::prefix('comment')->group(function (){
+                Route::get('/', 'CommentController@index');
+                Route::post('/', 'CommentController@comment');
 
-            Route::put('/comment/{comment}', 'CommentController@confirm');
-            Route::put('/comment/{comment}/unconfirm', 'CommentController@unconfirm');
-            Route::delete('/comment/{comment}', 'CommentController@delete');
+                Route::get('/{comment}', 'CommentController@show');
+
+                Route::put('/{comment}', 'CommentController@confirm');
+                Route::put('/{comment}/unconfirm', 'CommentController@unconfirm');
+                Route::delete('/{comment}', 'CommentController@delete');
+            });
+
         });
     });
 

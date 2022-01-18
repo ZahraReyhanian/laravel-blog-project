@@ -4,11 +4,14 @@ namespace App\Http\Controllers\api\v1\post;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
-use App\Models\Post;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+    /**
+     * @return JsonResponse
+     */
     public function index()
     {
         $comments = Comment::query()->latest()->paginate(20);
@@ -21,7 +24,7 @@ class CommentController extends Controller
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function comment(Request $request)
     {
@@ -32,9 +35,10 @@ class CommentController extends Controller
             'comment' => 'required',
         ]);
 
-        auth()->user()->comments()->create($data);
+        $comment = auth()->user()->comments()->create($data);
+
         return response()->json([
-            'data' => 'پیام شما با موفقیت ثبت شد و پس از تائید نمایش داده خواهد شد .',
+            'data' => $comment,
             'status' => 'success'
         ], 200);
 
@@ -42,7 +46,7 @@ class CommentController extends Controller
 
     /**
      * @param Comment $comment
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function confirm(Comment $comment)
     {
@@ -50,14 +54,14 @@ class CommentController extends Controller
             'approved' => 1
         ]);
         return response()->json([
-            'data' => 'پیام مورد نظر تائید شد',
+            'data' => $comment,
             'status' => 'success'
         ], 200);
     }
 
     /**
      * @param Comment $comment
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function unconfirm(Comment $comment)
     {
@@ -65,20 +69,20 @@ class CommentController extends Controller
             'approved' => 0
         ]);
         return response()->json([
-            'data' => 'پیام مورد نظر مردود شد',
+            'data' => $comment,
             'status' => 'success'
         ], 200);
     }
 
     /**
      * @param Comment $comment
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function delete(Comment $comment)
     {
         $comment->delete();
         return response()->json([
-            'data' => 'پیام مورد نظر حذف شد',
+            'data' => [],
             'status' => 'success'
         ], 200);
 
