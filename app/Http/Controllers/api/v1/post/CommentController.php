@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
+    public function __construct(){
+        $this->middleware('can:show-comments')->only(['index', 'show']);
+        $this->middleware('can:edit-comment')->only(['confirm', 'unconfirm']);
+        $this->middleware('can:delete-comment')->only(['delete']);
+    }
     /**
      * @return JsonResponse
      */

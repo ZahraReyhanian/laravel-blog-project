@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class UserPermissionController extends Controller
 {
+    public function __construct(){
+        $this->middleware('can:show-user-permissions')->only(['index']);
+        $this->middleware('can:create-user-permission')->only(['store']);
+    }
+
     /**
      * @param User $user
      * @return JsonResponse

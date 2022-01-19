@@ -12,6 +12,10 @@ class PostController extends Controller
     public function __construct()
     {
         $this->middleware('auth:sanctum')->except(['index','show']);
+
+        $this->middleware('can:create-post')->only(['store']);
+        $this->middleware('can:edit-post')->only(['update']);
+        $this->middleware('can:delete-post')->only(['destroy']);
     }
     /**
      * Display a listing of the resource.

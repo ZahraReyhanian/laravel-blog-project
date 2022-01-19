@@ -12,6 +12,10 @@ class CategoryController extends Controller
     public function __construct()
     {
         $this->middleware('auth:sanctum')->except(['index','show']);
+
+        $this->middleware('can:create-category')->only(['store']);
+        $this->middleware('can:edit-category')->only(['update']);
+        $this->middleware('can:delete-category')->only(['destroy']);
     }
 
     /**
