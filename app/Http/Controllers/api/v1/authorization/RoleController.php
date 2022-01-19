@@ -15,6 +15,34 @@ class RoleController extends Controller
      *
      * @return JsonResponse
      */
+    /**
+     * @OA\Get(
+     *      path="/auth/roles",
+     *      operationId="getRolesList",
+     *      tags={"Roles"},
+     *      summary="Get list of roles",
+     *      description="Returns list of roles",
+     *     security={{"bearerAuth":{}}},
+     *     @OA\RequestBody(
+     *         @OA\MediaType(
+     *             mediaType="application/json",
+     *
+     *         )
+     *     ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *     @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *     )
+     */
     public function index()
     {
         $roles = Role::query()->orderByDesc('id')->paginate(20);
@@ -31,6 +59,33 @@ class RoleController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return JsonResponse
+     */
+    /**
+     * @OA\Post(
+     *      path="/auth/roles",
+     *      operationId="storeRole",
+     *      tags={"Roles"},
+     *      summary="Store new role",
+     *      description="Returns role data",
+     *     security={{"bearerAuth":{}}},
+     *      @OA\Response(
+     *          response=201,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Role")
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
      */
     public function store(Request $request)
     {
@@ -50,7 +105,7 @@ class RoleController extends Controller
                 'permissions' => $role->permissions
             ],
             'status' => 'success'
-        ], 200);
+        ], 201);
     }
 
     /**
@@ -58,6 +113,42 @@ class RoleController extends Controller
      *
      * @param Role $role
      * @return JsonResponse
+     */
+    /**
+     * @OA\Get(
+     *      path="/auth/roles/{id}",
+     *      operationId="getRoleById",
+     *      tags={"Roles"},
+     *      summary="Get role information",
+     *      description="Returns role data",
+     *     security={{"bearerAuth":{}}},
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Role id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Role")
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *     @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
      */
     public function show(Role $role)
     {
@@ -76,6 +167,53 @@ class RoleController extends Controller
      * @param Role $role
      * @return JsonResponse
      */
+    /**
+     * @OA\Put(
+     *      path="/auth/roles/{id}",
+     *      operationId="updateRole",
+     *      tags={"Roles"},
+     *      summary="Update existing role",
+     *      description="Returns updated role data",
+     *      security={{"bearerAuth":{}}},
+     *
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Role id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *
+     *      @OA\SecurityScheme(
+     *          securityScheme="bearerAuth",
+     *          type="http",
+     *          scheme="bearer"
+     *      ),
+     *      @OA\Response(
+     *          response=202,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Role")
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Resource Not Found"
+     *      )
+     * )
+     */
     public function update(Request $request, Role $role)
     {
         $data = $request->validate([
@@ -93,7 +231,7 @@ class RoleController extends Controller
                 'permissions' => $role->permissions
             ],
             'status' => 'success'
-        ], 200);
+        ], 202);
     }
 
     /**
@@ -101,6 +239,42 @@ class RoleController extends Controller
      *
      * @param  Role $role
      * @return JsonResponse
+     */
+    /**
+     * @OA\Delete(
+     *      path="/auth/roles/{id}",
+     *      operationId="deleteRole",
+     *      tags={"Roles"},
+     *      summary="Delete existing role",
+     *      description="Deletes a record and returns no content",
+     *     security={{"bearerAuth":{}}},
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Role id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=204,
+     *          description="Successful operation",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Resource Not Found"
+     *      )
+     * )
      */
     public function destroy(Role $role)
     {

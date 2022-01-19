@@ -105,7 +105,7 @@ class Post extends Model
     /**
      * @OA\Property(
      *     title="comments",
-     *     description="Post comments"
+     *     description="Post comments",
      * )
      *
      * @var \App\Models\Comment
@@ -115,7 +115,14 @@ class Post extends Model
     /**
      * @OA\Property(
      *     title="categories",
-     *     description="Post categories"
+     *     description="Post categories",
+     *     type="array",
+     *     @OA\Items(
+     *               type="number",
+     *               description="The Category ID",
+     *               @OA\Schema(type="number"),
+     *              example = 1
+     *         ),
      * )
      *
      * @var \App\Models\Category
