@@ -51,6 +51,11 @@ class User extends Authenticatable
         return $this->is_staff;
     }
 
+    public function post()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     public function permissions()
     {
         return $this->belongsToMany(Permission::class);

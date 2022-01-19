@@ -20,9 +20,16 @@ class PostController extends Controller
      */
     /**
      * @OA\Get(
-     *     path="/post",
-     *     @OA\Response(response="200", description="Display a listing of posts.")
-     * )
+     *      path="/posts",
+     *      operationId="getPostsList",
+     *      tags={"Posts"},
+     *      summary="Get list of posts",
+     *      description="Returns list of posts",
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *     )
      */
     public function index()
     {
@@ -41,12 +48,44 @@ class PostController extends Controller
      * @param PostRequest $request
      * @return JsonResponse
      */
+    /**
+     * @OA\Post(
+     *      path="/posts",
+     *      operationId="storePost",
+     *      tags={"Posts"},
+     *      summary="Store new post",
+     *      description="Returns post data",
+     *     security={{"bearerAuth":{}}},
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/PostRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Post")
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
+     */
     public function store(PostRequest $request)
     {
         $post = Post::create([
             'title' => $request->title,
             'image' => $request->image,
             'description' => $request->description,
+            'user_id' => $request->user_id
         ]);
 
         if ($request->has('categories'))
@@ -55,7 +94,7 @@ class PostController extends Controller
         return response()->json([
             'data' => $post,
             'status' => 'success'
-        ], 200);
+        ], 201);
 
     }
 
@@ -64,6 +103,33 @@ class PostController extends Controller
      *
      * @param Post $post
      * @return JsonResponse
+     */
+    /**
+     * @OA\Get(
+     *      path="/posts/{id}",
+     *      operationId="getPostById",
+     *      tags={"Posts"},
+     *      summary="Get post information",
+     *      description="Returns post data",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Post id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Post")
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      )
+     * )
      */
     public function show(Post $post)
     {
@@ -89,6 +155,58 @@ class PostController extends Controller
      * @param Post $post
      * @return JsonResponse
      */
+    /**
+     * @OA\Put(
+     *      path="/posts/{id}",
+     *      operationId="updatePost",
+     *      tags={"Posts"},
+     *      summary="Update existing post",
+     *      description="Returns updated post data",
+     *      security={{"bearerAuth":{}}},
+     *
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Post id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *
+     *      @OA\SecurityScheme(
+     *          securityScheme="bearerAuth",
+     *          type="http",
+     *          scheme="bearer"
+     *      ),
+     *
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/PostRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=202,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Post")
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Resource Not Found"
+     *      )
+     * )
+     */
     public function update(PostRequest $request, Post $post)
     {
         $post->update($request->all());
@@ -97,7 +215,7 @@ class PostController extends Controller
         return response()->json([
             'data' => $post,
             'status' => 'success'
-        ], 200);
+        ], 202);
     }
 
     /**
@@ -106,6 +224,42 @@ class PostController extends Controller
      * @param Post $post
      * @return JsonResponse
      */
+    /**
+     * @OA\Delete(
+     *      path="/posts/{id}",
+     *      operationId="deletePost",
+     *      tags={"Posts"},
+     *      summary="Delete existing post",
+     *      description="Deletes a record and returns no content",
+     *     security={{"bearerAuth":{}}},
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Post id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=204,
+     *          description="Successful operation",
+     *          @OA\JsonContent()
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Resource Not Found"
+     *      )
+     * )
+     */
     public function destroy(Post $post)
     {
         $post->delete();
@@ -113,7 +267,7 @@ class PostController extends Controller
         return response()->json([
             'data' => [],
             'status' => 'success'
-        ], 200);
+        ], 204);
     }
 
     private function getAllComments(\Illuminate\Database\Eloquent\Collection $comments)
