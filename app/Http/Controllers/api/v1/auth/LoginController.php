@@ -15,6 +15,27 @@ class LoginController extends Controller
      * @return \Illuminate\Http\JsonResponse
      * @throws \Illuminate\Validation\ValidationException
      */
+    /**
+     * @OA\Post(
+     *      path="/auth/login",
+     *      operationId="loginUser",
+     *      tags={"Authentication"},
+     *      summary="login a user",
+     *      description="login a user",
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/LoginRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation"
+     *       ),
+     *     @OA\Response(
+     *          response=401,
+     *          description="Unauthorized"
+     *       ),
+     * )
+     */
     public function login(Request $request)
     {
         $validator = $this->validateData($request);
@@ -55,7 +76,7 @@ class LoginController extends Controller
     {
         return response()->json([
             'data' => [
-                'message' => 'User successfully registered',
+                'message' => 'User successfully logged in',
                 'user' => $user,
                 'token' => $token
             ],

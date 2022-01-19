@@ -57,6 +57,11 @@ class CategoryController extends Controller
      *      summary="Store new category",
      *      description="Returns category data",
      *
+     *     @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/CategoryRequest")
+     *      ),
+     *
      *      @OA\Response(
      *          response=201,
      *          description="Successful operation",
@@ -159,6 +164,10 @@ class CategoryController extends Controller
      *          securityScheme="bearerAuth",
      *          type="http",
      *          scheme="bearer"
+     *      ),
+     *     @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/CategoryRequest")
      *      ),
      *
      *      @OA\Response(

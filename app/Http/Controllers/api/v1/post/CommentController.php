@@ -106,6 +106,10 @@ class CommentController extends Controller
      *      summary="Store new comment",
      *      description="Returns comment data",
      *     security={{"bearerAuth":{}}},
+     *     @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/CommentRequest")
+     *      ),
      *      @OA\Response(
      *          response=201,
      *          description="Successful operation",
@@ -119,10 +123,6 @@ class CommentController extends Controller
      *          response=401,
      *          description="Unauthenticated",
      *      ),
-     *      @OA\Response(
-     *          response=403,
-     *          description="Forbidden"
-     *      )
      * )
      */
     public function comment(Request $request)

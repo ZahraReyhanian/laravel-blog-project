@@ -23,6 +23,11 @@ class PermissionController extends Controller
      *      summary="Get list of permissions",
      *      description="Returns list of permissions",
      *     security={{"bearerAuth":{}}},
+     *     @OA\SecurityScheme(
+     *          securityScheme="bearerAuth",
+     *          type="http",
+     *          scheme="bearer"
+     *      ),
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="application/json",
@@ -67,6 +72,15 @@ class PermissionController extends Controller
      *      summary="Store new permission",
      *      description="Returns permission data",
      *     security={{"bearerAuth":{}}},
+     *     @OA\SecurityScheme(
+     *          securityScheme="bearerAuth",
+     *          type="http",
+     *          scheme="bearer"
+     *      ),
+     *     @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/PermissionRequest")
+     *      ),
      *      @OA\Response(
      *          response=201,
      *          description="Successful operation",
@@ -122,6 +136,11 @@ class PermissionController extends Controller
      *          @OA\Schema(
      *              type="integer"
      *          )
+     *      ),
+     *     @OA\SecurityScheme(
+     *          securityScheme="bearerAuth",
+     *          type="http",
+     *          scheme="bearer"
      *      ),
      *      @OA\Response(
      *          response=200,
@@ -180,6 +199,10 @@ class PermissionController extends Controller
      *          securityScheme="bearerAuth",
      *          type="http",
      *          scheme="bearer"
+     *      ),
+     *     @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/PermissionRequest")
      *      ),
      *      @OA\Response(
      *          response=202,

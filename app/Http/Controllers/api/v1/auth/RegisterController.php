@@ -16,6 +16,27 @@ class RegisterController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
+    /**
+     * @OA\Post(
+     *      path="/auth/register",
+     *      operationId="registerUser",
+     *      tags={"Authentication"},
+     *      summary="register a user",
+     *      description="register a user",
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/RegisterRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation"
+     *       ),
+     *     @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *       ),
+     * )
+     */
     public function register(Request $request)
     {
         $validator = $this->validateData($request);

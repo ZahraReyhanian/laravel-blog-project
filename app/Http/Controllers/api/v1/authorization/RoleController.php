@@ -23,6 +23,11 @@ class RoleController extends Controller
      *      summary="Get list of roles",
      *      description="Returns list of roles",
      *     security={{"bearerAuth":{}}},
+     *     @OA\SecurityScheme(
+     *          securityScheme="bearerAuth",
+     *          type="http",
+     *          scheme="bearer"
+     *      ),
      *     @OA\RequestBody(
      *         @OA\MediaType(
      *             mediaType="application/json",
@@ -68,14 +73,23 @@ class RoleController extends Controller
      *      summary="Store new role",
      *      description="Returns role data",
      *     security={{"bearerAuth":{}}},
+     *     @OA\SecurityScheme(
+     *          securityScheme="bearerAuth",
+     *          type="http",
+     *          scheme="bearer"
+     *      ),
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/RoleRequest")
+     *      ),
      *      @OA\Response(
      *          response=201,
      *          description="Successful operation",
      *          @OA\JsonContent(ref="#/components/schemas/Role")
      *       ),
      *      @OA\Response(
-     *          response=400,
-     *          description="Bad Request"
+     *          response=422,
+     *          description="Unprocessable Content"
      *      ),
      *      @OA\Response(
      *          response=401,
@@ -130,6 +144,11 @@ class RoleController extends Controller
      *          @OA\Schema(
      *              type="integer"
      *          )
+     *      ),
+     *     @OA\SecurityScheme(
+     *          securityScheme="bearerAuth",
+     *          type="http",
+     *          scheme="bearer"
      *      ),
      *      @OA\Response(
      *          response=200,
@@ -190,6 +209,10 @@ class RoleController extends Controller
      *          securityScheme="bearerAuth",
      *          type="http",
      *          scheme="bearer"
+     *      ),
+     *     @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/RoleRequest")
      *      ),
      *      @OA\Response(
      *          response=202,

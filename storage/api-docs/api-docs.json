@@ -19,6 +19,118 @@
         }
     ],
     "paths": {
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "login a user",
+                "description": "login a user",
+                "operationId": "loginUser",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/LoginRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/auth/register": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "register a user",
+                "description": "register a user",
+                "operationId": "registerUser",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RegisterRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/auth/password/email": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "send email to reset password a user",
+                "description": "send email to reset password a user",
+                "operationId": "sendPasswordResetLinkEmail",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SendEmailRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
+        "/auth/password/reset": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "reset password a user",
+                "description": "reset password a user",
+                "operationId": "resetPasswordAUser",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ResetRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            }
+        },
         "/auth/permissions": {
             "get": {
                 "tags": [
@@ -56,6 +168,16 @@
                 "summary": "Store new permission",
                 "description": "Returns permission data",
                 "operationId": "storePermission",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PermissionRequest"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "201": {
                         "description": "Successful operation",
@@ -148,6 +270,16 @@
                         }
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PermissionRequest"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "202": {
                         "description": "Successful operation",
@@ -158,6 +290,57 @@
                                 }
                             }
                         }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Permissions"
+                ],
+                "summary": "permissions and roles of a user",
+                "description": "Update and store permissions and roles of a user",
+                "operationId": "updateUserPermissionAndRole",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "User id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserPermissionRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Successful operation"
                     },
                     "400": {
                         "description": "Bad Request"
@@ -259,6 +442,16 @@
                 "summary": "Store new role",
                 "description": "Returns role data",
                 "operationId": "storeRole",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RoleRequest"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "201": {
                         "description": "Successful operation",
@@ -270,8 +463,8 @@
                             }
                         }
                     },
-                    "400": {
-                        "description": "Bad Request"
+                    "422": {
+                        "description": "Unprocessable Content"
                     },
                     "401": {
                         "description": "Unauthenticated"
@@ -351,6 +544,16 @@
                         }
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/RoleRequest"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "202": {
                         "description": "Successful operation",
@@ -425,6 +628,46 @@
                 ]
             }
         },
+        "/auth/permissions/{user}": {
+            "get": {
+                "tags": [
+                    "Permissions"
+                ],
+                "summary": "Get User permissions and roles",
+                "description": "Return User permissions and roles",
+                "operationId": "getUserPermissions",
+                "parameters": [
+                    {
+                        "name": "user",
+                        "in": "path",
+                        "description": "User id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
         "/categories": {
             "get": {
                 "tags": [
@@ -446,6 +689,16 @@
                 "summary": "Store new category",
                 "description": "Returns category data",
                 "operationId": "storeCategories",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CategoryRequest"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "201": {
                         "description": "Successful operation",
@@ -522,6 +775,16 @@
                         }
                     }
                 ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CategoryRequest"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "202": {
                         "description": "Successful operation",
@@ -633,6 +896,16 @@
                 "summary": "Store new comment",
                 "description": "Returns comment data",
                 "operationId": "storeComment",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CommentRequest"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "201": {
                         "description": "Successful operation",
@@ -649,9 +922,6 @@
                     },
                     "401": {
                         "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
                     }
                 },
                 "security": [
@@ -1130,6 +1400,110 @@
     },
     "components": {
         "schemas": {
+            "CategoryRequest": {
+                "title": "Category request",
+                "description": "Category request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of the new category",
+                        "type": "string",
+                        "example": "Tree"
+                    },
+                    "parent": {
+                        "title": "Parent",
+                        "description": "Parent of the category",
+                        "type": "string",
+                        "example": "0"
+                    }
+                },
+                "type": "object"
+            },
+            "CommentRequest": {
+                "title": "Comment request",
+                "description": "Comment request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "comment": {
+                        "title": "Comment",
+                        "description": "Text of a comment",
+                        "type": "string",
+                        "example": "Awesome!"
+                    },
+                    "parent_id": {
+                        "title": "Comment ID",
+                        "description": "Comment Parent ID and it's default is 0",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 0
+                    },
+                    "commentable_id": {
+                        "title": "Commentable ID",
+                        "description": "Id of model that user comment on",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "commentable_type": {
+                        "title": "Commentable Type",
+                        "description": "Type of model that user comment on",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": "App\\Models\\Post"
+                    }
+                },
+                "type": "object"
+            },
+            "LoginRequest": {
+                "title": "Login request",
+                "description": "Login request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "email": {
+                        "title": "email",
+                        "description": "email of an existing user",
+                        "type": "string",
+                        "example": "zahra@gmail.com"
+                    },
+                    "password": {
+                        "title": "password",
+                        "description": "password of user",
+                        "type": "string",
+                        "example": "12345678"
+                    }
+                },
+                "type": "object"
+            },
+            "PermissionRequest": {
+                "title": "Permission request",
+                "description": "Permission request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of the new permission",
+                        "type": "string",
+                        "example": "edit-post"
+                    },
+                    "label": {
+                        "title": "Label",
+                        "description": "short description of name",
+                        "type": "string",
+                        "format": "int64",
+                        "example": "ویرایش پست"
+                    }
+                },
+                "type": "object"
+            },
             "PostRequest": {
                 "title": "Post request",
                 "description": "Post request body data",
@@ -1162,6 +1536,163 @@
                         "type": "integer",
                         "format": "int64",
                         "example": 1
+                    },
+                    "categories": {
+                        "title": "categories",
+                        "description": "Post categories",
+                        "type": "array",
+                        "items": {
+                            "description": "The Category ID",
+                            "type": "number",
+                            "example": 1
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "RegisterRequest": {
+                "title": "Register request",
+                "description": "Register request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "name",
+                        "description": "name of an user",
+                        "type": "string",
+                        "example": "zahra"
+                    },
+                    "email": {
+                        "title": "email",
+                        "description": "email of an user",
+                        "type": "string",
+                        "example": "zahra@gmail.com"
+                    },
+                    "password": {
+                        "title": "password",
+                        "description": "password of user",
+                        "type": "string",
+                        "example": "12345678"
+                    },
+                    "password_confirmation": {
+                        "title": "password_confirmation",
+                        "description": "confirmation of password",
+                        "type": "string",
+                        "example": "12345678"
+                    }
+                },
+                "type": "object"
+            },
+            "ResetRequest": {
+                "title": "Reset request",
+                "description": "Reset request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "email": {
+                        "title": "email",
+                        "description": "email of an user",
+                        "type": "string",
+                        "example": "zahra@gmail.com"
+                    },
+                    "password": {
+                        "title": "password",
+                        "description": "password of user",
+                        "type": "string",
+                        "example": "12345678"
+                    },
+                    "password_confirmation": {
+                        "title": "password_confirmation",
+                        "description": "confirmation of password",
+                        "type": "string",
+                        "example": "12345678"
+                    },
+                    "token": {
+                        "title": "token",
+                        "description": "token that is send to email and it has limited life time",
+                        "type": "string",
+                        "example": "7a246c3fdd83f204af6f80544bfeebc614aed8cfaf81e31221c33775ce05c26f"
+                    }
+                },
+                "type": "object"
+            },
+            "RoleRequest": {
+                "title": "Role request",
+                "description": "Role request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "name": {
+                        "title": "Name",
+                        "description": "Name of the new role",
+                        "type": "string",
+                        "example": "edit-post"
+                    },
+                    "label": {
+                        "title": "Label",
+                        "description": "short description of name",
+                        "type": "string",
+                        "format": "int64",
+                        "example": "ویرایش پست"
+                    },
+                    "permissions": {
+                        "title": "permissions",
+                        "description": "list of permissions",
+                        "type": "array",
+                        "items": {
+                            "description": "The Permission ID",
+                            "type": "number",
+                            "example": 1
+                        }
+                    }
+                },
+                "type": "object"
+            },
+            "SendEmailRequest": {
+                "title": "SendEmail request",
+                "description": "SendEmail request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "email": {
+                        "title": "email",
+                        "description": "email of an user",
+                        "type": "string",
+                        "example": "zahra@gmail.com"
+                    }
+                },
+                "type": "object"
+            },
+            "UserPermissionRequest": {
+                "title": "UserPermission request",
+                "description": "UserPermission request body data",
+                "required": [
+                    "name"
+                ],
+                "properties": {
+                    "permissions": {
+                        "title": "permissions",
+                        "description": "list of permissions",
+                        "type": "array",
+                        "items": {
+                            "description": "The Permission ID",
+                            "type": "number",
+                            "example": 1
+                        }
+                    },
+                    "roles": {
+                        "title": "roles",
+                        "description": "list of roles",
+                        "type": "array",
+                        "items": {
+                            "description": "The Role ID",
+                            "type": "number",
+                            "example": 1
+                        }
                     }
                 },
                 "type": "object"

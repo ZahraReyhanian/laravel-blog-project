@@ -72,6 +72,23 @@ class PostRequest extends FormRequest
      */
     public $user_id;
 
+    /**
+     * @OA\Property(
+     *     title="categories",
+     *     description="Post categories",
+     *     type="array",
+     *     @OA\Items(
+     *               type="number",
+     *               description="The Category ID",
+     *               @OA\Schema(type="number"),
+     *              example = 1
+     *         ),
+     * )
+     *
+     * @var \App\Models\Category
+     */
+    private $categories;
+
 
 
     /**

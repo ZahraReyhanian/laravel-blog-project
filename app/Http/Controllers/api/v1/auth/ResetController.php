@@ -18,6 +18,27 @@ class ResetController extends Controller
      * @return JsonResponse
      * @throws ValidationException
      */
+    /**
+     * @OA\Post(
+     *      path="/auth/password/email",
+     *      operationId="sendPasswordResetLinkEmail",
+     *      tags={"Authentication"},
+     *      summary="send email to reset password a user",
+     *      description="send email to reset password a user",
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/SendEmailRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation"
+     *       ),
+     *     @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *       ),
+     * )
+     */
     public function sendPasswordResetLinkEmail(Request $request) {
         $request->validate(['email' => 'required|email']);
 
@@ -38,6 +59,33 @@ class ResetController extends Controller
      * @param Request $request
      * @return JsonResponse
      * @throws ValidationException
+     */
+    /**
+     * register a user
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    /**
+     * @OA\Post(
+     *      path="/auth/password/reset",
+     *      operationId="resetPasswordAUser",
+     *      tags={"Authentication"},
+     *      summary="reset password a user",
+     *      description="reset password a user",
+     *      @OA\RequestBody(
+     *          required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/ResetRequest")
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation"
+     *       ),
+     *     @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *       ),
+     * )
      */
     public function resetPassword(Request $request) {
         $request->validate([
